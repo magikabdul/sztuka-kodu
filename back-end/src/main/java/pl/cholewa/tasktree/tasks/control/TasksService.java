@@ -51,4 +51,8 @@ public class TasksService {
                 .collect(Collectors.toList());
 
     }
+
+    public void removeTask(Long id) {
+        tasksRepository.deleteById(id);
+    }
 }
