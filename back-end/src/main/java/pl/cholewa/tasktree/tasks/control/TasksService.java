@@ -22,15 +22,17 @@ public class TasksService {
         this.clock = clock;
     }
 
-    public void addTask(String title, String description) {
-        tasksRepository.add(
-                new Task(
-                        nextTaskId.getAndIncrement(),
-                        title,
-                        description,
-                        clock.time()
-                )
+    public Task addTask(String title, String description) {
+        Task task = new Task(
+                nextTaskId.getAndIncrement(),
+                title,
+                description,
+                clock.time()
         );
+
+        tasksRepository.add(task);
+        return task;
+
     }
 
     public void updateTask(Long id, String title, String description) {

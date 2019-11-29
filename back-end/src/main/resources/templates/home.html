@@ -36,7 +36,7 @@
         </tbody>
     </table>
 
-    <form action="#" th:object="${newTask}" th:action="@{/tasks}" method="post">
+    <form action="#" th:object="${newTask}" th:action="@{/tasks}" method="post" enctype="multipart/form-data">
         <fieldset>
             <label>
                 Tytuł
@@ -48,6 +48,10 @@
                 Opis
                 <textarea th:field="*{description}"></textarea>
             </label>
+        </fieldset>
+        <fieldset>
+            Załącznik
+            <input type="file" name="attachment">
         </fieldset>
         <button type="submit">Dodaj</button>
     </form>

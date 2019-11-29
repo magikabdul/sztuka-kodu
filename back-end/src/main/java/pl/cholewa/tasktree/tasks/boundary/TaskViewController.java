@@ -5,7 +5,9 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 import pl.cholewa.tasktree.tasks.control.TasksService;
+import pl.cholewa.tasktree.tasks.entity.Task;
 
 @Controller
 @RequestMapping("/")
@@ -14,6 +16,7 @@ import pl.cholewa.tasktree.tasks.control.TasksService;
 public class TaskViewController {
 
     private final TasksService tasksService;
+//    private final StorageService storageService;
 
     @GetMapping
     public String home(Model model) {
@@ -23,9 +26,11 @@ public class TaskViewController {
     }
 
     @PostMapping("tasks")
-    public String addTask(@ModelAttribute("newTask") CreateTaskRequest request) {
+    public String addTask(@ModelAttribute("newTask") CreateTaskRequest request,
+                          @RequestParam("attachment") MultipartFile attachment) {
         log.info("dodaje zadnie");
-        tasksService.addTask(request.title, request.description);
+        Task task = tasksService.addTask(request.title, request.description);
+//        storageService.saveFile(task.getId(), attachment);
         return "redirect:/";
     }
 
