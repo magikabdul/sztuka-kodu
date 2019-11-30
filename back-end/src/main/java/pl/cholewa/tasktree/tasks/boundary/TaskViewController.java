@@ -13,6 +13,7 @@ import pl.cholewa.tasktree.tasks.entity.Task;
 @RequestMapping("/")
 @RequiredArgsConstructor
 @Slf4j
+@CrossOrigin
 public class TaskViewController {
 
     private final TasksService tasksService;
@@ -30,6 +31,7 @@ public class TaskViewController {
                           @RequestParam("attachment") MultipartFile attachment) {
         log.info("dodaje zadnie");
         Task task = tasksService.addTask(request.title, request.description);
+//        if (!attachment.isEmpty())
 //        storageService.saveFile(task.getId(), attachment);
         return "redirect:/";
     }

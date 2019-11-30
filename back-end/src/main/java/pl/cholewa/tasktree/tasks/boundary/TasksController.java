@@ -14,6 +14,7 @@ import java.util.stream.Collectors;
 @Slf4j
 @RestController
 @RequestMapping(path = "/api/tasks")
+@CrossOrigin("*")
 public class TasksController {
 
     private final TasksConfig config;
@@ -28,9 +29,9 @@ public class TasksController {
 
     @PostConstruct
     private void init() {
-        tasksService.addTask("zadanie 1", "desc 1");
-        tasksService.addTask("zadanie 2", "desc 2");
-        tasksService.addTask("zadanie 3", "desc 3");
+        tasksService.addTask("Test task", "Simple task description");
+        tasksService.addTask("Backend", "Create Backend");
+        tasksService.addTask("Frontend", "Build React Frontend");
     }
 
     @GetMapping
