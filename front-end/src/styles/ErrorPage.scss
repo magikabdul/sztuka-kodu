@@ -1,0 +1,29 @@
+.error-page {
+  margin-top: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  &__code {
+    color: #80cae4;
+    font-size: 100px;
+    line-height: 150px;
+    margin: 0 15px;
+    padding: 0 15px;
+  }
+  &__icon {
+    color: #0094d2;
+    margin: 0 15px;
+  }
+  &__header {
+    font-size: 50px;
+  }
+  &__message {
+    width: 70%;
+    margin-top: 20px;
+    color: gray;
+    font-size: 24px;
+    text-align: center;
+    font-weight: 300;
+  }
+}
