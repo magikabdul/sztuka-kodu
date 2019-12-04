@@ -8,7 +8,7 @@ import {
   TableRow,
   TableHead,
   TableCell,
-  TableBody
+  TableBody,
 } from '@material-ui/core';
 
 class Orders extends Component {
@@ -16,16 +16,26 @@ class Orders extends Component {
     notes: []
   };
 
-  componentDidMount() {
+  handleShowNotes = () => {
     fetch('http://localhost:8080//api/tasks')
       .then(response => response.json())
       .then(notes => this.setState({ notes }));
+  };
+
+  handleRemoveNote = id => {
+    fetch(`http://localhost:8080//api/tasks/${id}`, { method: 'DELETE' }).then(
+      this.handleShowNotes
+    );
+  };
+
+  componentDidMount() {
+    this.handleShowNotes();
   }
 
   render() {
     const orderList = this.state.notes.map(note => (
       <TableRow key={note.id}>
-        <Order note={note} />
+        <Order note={note} delete={this.handleRemoveNote} />
       </TableRow>
     ));
 
@@ -38,6 +48,7 @@ class Orders extends Component {
               <TableCell>Title</TableCell>
               <TableCell>Description</TableCell>
               <TableCell>Created at</TableCell>
+              <TableCell></TableCell>
             </TableRow>
           </TableHead>
           <TableBody>{orderList}</TableBody>
