@@ -17,7 +17,7 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-const Order = props => {
+const Note = props => {
   const { title, description, createdAt } = props.note;
 
   const classes = useStyles();
@@ -45,4 +45,4 @@ const Order = props => {
   );
 };
 
-export default Order;
+export default Note;

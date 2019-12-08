@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import Title from '../components/Title';
 
-import Order from '../components/Order';
+import Note from '../components/Note';
 import {
   Table,
   TableRow,
@@ -11,7 +11,7 @@ import {
   TableBody
 } from '@material-ui/core';
 
-class Orders extends Component {
+class Notes extends Component {
   state = {
     notes: []
   };
@@ -37,7 +37,7 @@ class Orders extends Component {
   render() {
     const orderList = this.state.notes.map(note => (
       <TableRow key={note.id}>
-        <Order note={note} delete={this.handleRemoveNote} />
+        <Note note={note} delete={this.handleRemoveNote} />
       </TableRow>
     ));
 
@@ -60,4 +60,4 @@ class Orders extends Component {
   }
 }
 
-export default Orders;
+export default Notes;

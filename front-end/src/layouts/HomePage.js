@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Orders from '../pages/Orders';
+import Notes from '../pages/Notes';
 
 import { makeStyles } from '@material-ui/core/styles';
 
@@ -28,7 +28,7 @@ const HomePage = () => {
       <Container className={classes.root} maxWidth="md">
         <div>
           <Paper className={classes.paper}>
-            <Orders />
+            <Notes />
           </Paper>
         </div>
       </Container>
