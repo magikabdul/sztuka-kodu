@@ -8,7 +8,7 @@ import {
   TableRow,
   TableHead,
   TableCell,
-  TableBody,
+  TableBody
 } from '@material-ui/core';
 
 class Orders extends Component {
@@ -29,7 +29,9 @@ class Orders extends Component {
   };
 
   componentDidMount() {
-    this.handleShowNotes();
+    setTimeout(() => {
+      this.handleShowNotes();
+    }, 1000);
   }
 
   render() {

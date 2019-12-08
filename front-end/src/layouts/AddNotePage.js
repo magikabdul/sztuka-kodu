@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 
 import NoteEditor from '../components/NoteEditor';
-import { stat } from 'fs';
 
 class AddNotePage extends Component {
   state = {
@@ -19,15 +18,15 @@ class AddNotePage extends Component {
 
   handleAdd = () => {
     fetch('http://localhost:8080/api/tasks', {
-			method: 'POST',
-			headers: {
-				'Content-Type': 'application/json; charset=utf-8'
-			},
-			body: JSON.stringify({
-				title: this.state.title,
-				description: this.state.description
-			})
-		})
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json; charset=utf-8'
+      },
+      body: JSON.stringify({
+        title: this.state.title,
+        description: this.state.description
+      })
+    });
   };
 
   render() {
@@ -37,8 +36,8 @@ class AddNotePage extends Component {
           title={this.state.title}
           changeTitle={this.handleTitle}
           description={this.state.description}
-					changeDescription={this.handleDescription}
-					clickAdd={this.handleAdd}
+          changeDescription={this.handleDescription}
+          clickAdd={this.handleAdd}
         />
       </>
     );
