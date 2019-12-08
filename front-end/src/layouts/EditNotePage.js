@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import NoteEditor from '../components/NoteEditor';
 
-class AddNotePage extends Component {
+class EditNotePage extends Component {
   state = {
     title: '',
     description: ''
@@ -16,9 +16,9 @@ class AddNotePage extends Component {
     this.setState({ description: e.target.value });
   };
 
-  handleAdd = () => {
+  handleUpdate = () => {
     fetch('http://localhost:8080/api/tasks', {
-      method: 'POST',
+      method: 'PUT',
       headers: {
         'Content-Type': 'application/json; charset=utf-8'
       },
@@ -33,16 +33,16 @@ class AddNotePage extends Component {
     return (
       <>
         <NoteEditor
-          headerName={'Create Note'}
+          headerName={'Update Note'}
           title={this.state.title}
           changeTitle={this.handleTitle}
           description={this.state.description}
           changeDescription={this.handleDescription}
-          clickAdd={this.handleAdd}
+          clickAdd={this.handleUpdate}
         />
       </>
     );
   }
 }
 
-export default AddNotePage;
+export default EditNotePage;

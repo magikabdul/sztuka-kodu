@@ -40,6 +40,7 @@ const useStyles = makeStyles({
 
 const NoteEditor = props => {
   const {
+    headerName,
     title,
     changeTitle,
     description,
@@ -54,7 +55,7 @@ const NoteEditor = props => {
       <Header />
       <Container className={classes.root} maxWidth="sm">
         <Paper className={classes.paper}>
-          <Title text="Create note" />
+          <Title text={headerName} />
           <form>
             <TextField
               className={classes.field}

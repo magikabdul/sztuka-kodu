@@ -8,6 +8,7 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 
 import HomePage from '../layouts/HomePage';
 import AddNotePage from '../layouts/AddNotePage';
+import EditNotePage from '../layouts/EditNotePage';
 import RegisterPage from '../layouts/RegisterPage';
 import LoginPage from '../layouts/LoginPage';
 import ErrorPage from '../layouts/ErrorPage';
@@ -24,6 +25,7 @@ class App extends Component {
           <Switch>
             <Route path="/" exact component={HomePage} />
             <Route path="/add" component={AddNotePage} />
+            <Route path="/edit" component={EditNotePage} />
             <Route path="/register" component={RegisterPage} />
             <Route path="/login" component={LoginPage} />
             <Route component={ErrorPage} />

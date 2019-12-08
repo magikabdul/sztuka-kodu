@@ -28,6 +28,8 @@ class Notes extends Component {
     );
   };
 
+  handleUpdateNote = id => {};
+
   componentDidMount() {
     setTimeout(() => {
       this.handleShowNotes();
@@ -35,9 +37,13 @@ class Notes extends Component {
   }
 
   render() {
-    const orderList = this.state.notes.map(note => (
+    const notesList = this.state.notes.map(note => (
       <TableRow key={note.id}>
-        <Note note={note} delete={this.handleRemoveNote} />
+        <Note
+          note={note}
+          delete={this.handleRemoveNote}
+          update={this.handleUpdateNote}
+        />
       </TableRow>
     ));
 
@@ -53,7 +59,7 @@ class Notes extends Component {
               <TableCell></TableCell>
             </TableRow>
           </TableHead>
-          <TableBody>{orderList}</TableBody>
+          <TableBody>{notesList}</TableBody>
         </Table>
       </>
     );
