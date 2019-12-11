@@ -1,21 +1,21 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React from "react";
+import { Link } from "react-router-dom";
 
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles } from "@material-ui/core/styles";
 
-import { TableCell, Fab } from '@material-ui/core';
+import { TableCell, Fab } from "@material-ui/core";
 
-import DeleteIcon from '@material-ui/icons/Delete';
-import EditIcon from '@material-ui/icons/Edit';
-import NoteEditor from '../components/NoteEditor';
+import DeleteIcon from "@material-ui/icons/Delete";
+import EditIcon from "@material-ui/icons/Edit";
+import NoteEditor from "../components/NoteEditor";
 
 const useStyles = makeStyles(theme => ({
   margin: {
     margin: theme.spacing(1)
   },
   iconCell: {
-    display: 'flex',
-    justifyContent: 'flex-end'
+    display: "flex",
+    justifyContent: "flex-end"
   }
 }));
 
